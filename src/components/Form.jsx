@@ -1,8 +1,16 @@
+import { useNavigate } from "react-router-dom";
+
 function Form() {
+  const navigate = useNavigate();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Submitted");
+    navigate("/success");
+  };
   return (
     <>
       <div className="h-screen flex flex-col items-center justify-center bg-[#C4EFDD] bg-[url(../src/assets/background.svg)] bg-no-repeat bg-bottom bg-contain">
-        <div className="py-10 px-4 flex flex-col gap-4 items-center justify-center bg-blue-700 rounded-xl bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-20 border border-gray-100">
+        <form className="py-10 px-4 flex flex-col gap-4 items-center justify-center bg-blue-700 rounded-xl bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-20 border border-gray-100" onSubmit={handleSubmit}>
           <h1 className="font-bold text-5xl w-[88vh] text-center ">
             Attendence Form
           </h1>
@@ -16,6 +24,7 @@ function Form() {
               className="pl-2 border-[0.1rem] rounded-[8px]"
               type="text"
               placeholder="Enter your Full Name"
+              required
             />
 
             <label className="font-bold text-md">Student E-mail</label>
@@ -23,16 +32,18 @@ function Form() {
               className="pl-2 border-[0.1rem] rounded-[8px]"
               type="email"
               placeholder="ex: mystudid@example.edu.in"
+              required
             />
 
-            <label className="font-bold text-md">Your Register Number</label>
+            <label className="font-bold text-md" >Your Register Number</label>
             <input
               className="pl-2 border-[0.1rem] rounded-[8px]"
               type="text"
               placeholder="Enter your Register Number"
+              required
             />
 
-            <div className="flex justify-between">
+            <div className="flex justify-between gap-4">
               <label className="font-bold text-md pr-2">Department</label>
               <select className=" pl-2 rounded-[8px] border-[0.1rem]">
                 <option value="button 1">C-TECH</option>
@@ -55,7 +66,7 @@ function Form() {
               </select>
             <div className="flex justify-center">
             <div className="bg-red-500 rounded-2xl pb-1 hover:pb-0 ease-in duration-150 transition-all">
-              <button className=" bg-blue-700 rounded-2xl p-2 h-12 w-40 text-center font-bold text-white">
+              <button type="submit" className=" bg-blue-700 rounded-2xl p-2 h-12 w-40 text-center font-bold text-white"  >
                 <p className="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] hover:drop-shadow-[0]">
                   Submit
                 </p>
@@ -63,7 +74,7 @@ function Form() {
             </div>
             </div>
           </div>
-        </div>
+        </form>
       </div>
     </>
   );

@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+import Form from "./Form.jsx"
+
 const Home = () => {
   return (
     <div className="bg-[#C4EFDD] bg-[url(../src/assets/background.svg)] bg-no-repeat h-[100vh] bg-bottom bg-contain">
@@ -24,11 +27,14 @@ const Home = () => {
         </div>
 
         <div className="bg-red-500 rounded-2xl pb-1 hover:pb-0 ease-in duration-150 transition-all">
-          <button className=" bg-blue-700 rounded-2xl p-2 h-12 w-40 text-center font-bold text-white">
+         <Link to="./form">
+         <button className=" bg-blue-700 rounded-2xl p-2 h-12 w-40 text-center font-bold text-white">
             <p className="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] hover:drop-shadow-[0]">
               Mark Attendance
             </p>
+       
           </button>
+          </Link>
         </div>
       </div>
     </div>
